@@ -82,7 +82,8 @@ namespace Hjemmet
 
                 default:
                     Console.WriteLine($"\nDu har ikke indtastet sten, saks eller papir. Prøv venligst igen.");
-                    Start();
+                    //Start();
+                    brugerInput = Console.ReadLine();
                     break;
             }
             Console.WriteLine("\nTryk på en tast, for at vende tilbage til hovedmenuen.");
