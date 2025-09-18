@@ -7,7 +7,7 @@ namespace Hjemmet
         public void Start()
         {
             //Console.WriteLine("Sten, Saks, Papir er ikke implementeret endnu.");
-            Console.WriteLine($"\nIndtast enten: sten, saks eller papir");
+            Console.WriteLine($"\nSten, Saks, Papir - Indtast enten: sten, saks eller papir");
 
             Random newRandom = new Random();
             int randomNumber = newRandom.Next(1, 4);
@@ -82,12 +82,11 @@ namespace Hjemmet
                     break;
 
                 default:
-                    Console.WriteLine($"\nDu har ikke indtastet sten, saks eller papir");
-
-                    
+                    Console.WriteLine($"\nDu har ikke indtastet sten, saks eller papir. Prøv venligst igen.");
+                    Start();
                     break;
             }
-
+            Console.WriteLine("\nTryk på en tast, for at vende tilbage til hovedmenuen.");
             Console.ReadKey();
         }
     }

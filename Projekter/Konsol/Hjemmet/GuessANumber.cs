@@ -10,7 +10,7 @@ namespace Hjemmet
             int randomNumber = newRandom.Next(1, 100);
             
             bool isValid = false;
-            Console.WriteLine($"\nGæt et tal - indtast et heltal:");
+            Console.WriteLine($"\nGæt et tal mellem 1 og 100 - indtast et heltal:");
             string brugerInput = Console.ReadLine();
             int number = 0;
 
@@ -40,6 +40,7 @@ namespace Hjemmet
                     brugerInput = Console.ReadLine();
                 }                
             }
+            Console.WriteLine("\nTryk på en tast, for at vende tilbage til hovedmenuen.");
             Console.ReadKey();
         }
     }
