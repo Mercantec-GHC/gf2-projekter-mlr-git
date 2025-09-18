@@ -6,7 +6,6 @@ namespace Hjemmet
     {
         public void Start()
         {
-            //Console.WriteLine("Sten, Saks, Papir er ikke implementeret endnu.");
             Console.WriteLine($"\nSten, Saks, Papir - Indtast enten: sten, saks eller papir");
 
             Random newRandom = new Random();

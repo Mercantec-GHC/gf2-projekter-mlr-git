@@ -4,13 +4,11 @@ namespace Hjemmet
     {
         public void Start()
         {
-            //Console.WriteLine("Gæt et tal er ikke implementeret endnu.");
-            
-            Random newRandom = new Random();
-            int randomNumber = newRandom.Next(1, 100);
-            
-            bool isValid = false;
             Console.WriteLine($"\nGæt et tal mellem 1 og 100 - indtast et heltal:");
+
+            Random newRandom = new Random();
+            int randomNumber = newRandom.Next(1, 101);
+            bool isValid = false;
             string brugerInput = Console.ReadLine();
             int number = 0;
 
