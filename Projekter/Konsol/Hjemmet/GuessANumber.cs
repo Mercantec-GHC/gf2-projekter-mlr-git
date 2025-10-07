@@ -24,7 +24,7 @@ namespace Hjemmet
                     else if(number > randomNumber)
                     {
                         Console.WriteLine($"\nDit gæt er højere end tallet - gæt igen");
-                        brugerInput = Console.ReadLine();
+                        //brugerInput = Console.ReadLine();
                     }
                     else
                     {
