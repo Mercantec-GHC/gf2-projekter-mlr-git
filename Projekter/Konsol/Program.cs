@@ -28,8 +28,29 @@ while (run)
             break;
         case "4":
             // Kald BinaryConverter
-            BinaryConverter binaryConverter = new BinaryConverter();
-            binaryConverter.Start();
+            Console.WriteLine("Vælg venligst, om der skal konverters fra decimal til binær, eller omvendt.");
+            Console.WriteLine("Tast \"1\" for decimal til binær, eller \"2\" for binær til decimal:");
+            string binOrDec = Console.ReadLine();
+
+            switch (binOrDec)
+            {
+                case "1":
+                    //Kalder DecimalConverter
+                    DecimalConverter decimalConverter = new DecimalConverter();
+                    decimalConverter.Start();
+                    break;
+
+                case "2":
+                    //Kalder BinaryConverter
+                    BinaryConverter binaryConverter = new BinaryConverter();
+                    binaryConverter.Start();
+                    break;
+
+                default:
+                    Console.WriteLine("Ugyldigt valg, prøv igen:");
+                    Console.ReadKey();
+                    break;
+            }
             break;
         case "5":
             // Kald ADService

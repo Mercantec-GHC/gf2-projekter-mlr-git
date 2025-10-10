@@ -3,12 +3,12 @@ using System.Net.Mime;
 
 namespace Kontoret
 {
-    public class BinaryConverter
+    public class DecimalConverter
     {
         public void Start()
         {
-            Console.WriteLine("Velkommen til Binær IP til Decimal IP konverter!");
-            Console.WriteLine("Indtast en IPv4-adresse i binær (f.eks. 11000000.10101000.00000000.00000001), eller skriv 'exit' for at afslutte.");
+            Console.WriteLine("Velkommen til Decimal IP til Binær IP konverter!");
+            Console.WriteLine("Indtast en IPv4-adresse (f.eks. 10.20.10.1), eller skriv 'exit' for at afslutte.");
 
             var history = new List<string>();
 
@@ -20,7 +20,7 @@ namespace Kontoret
                 if (ipInput.Trim().ToLower() == "exit")
                     break;
 
-                string binary = IpToBinary(ipInput);
+                string binary = IpToDec(ipInput);
                 if (binary != null)
                 {
                     string result = $"IP: {ipInput} => Converted output: {binary}";
@@ -42,40 +42,27 @@ namespace Kontoret
             Console.ReadKey();
         }
 
-        private string IpToBinary(string ip)
+        private string IpToDec(string ip)
         {
-            string[] parts = ip.Split('.');
+            var parts = ip.Split('.');
             if (parts.Length != 4) return null;
 
-            List<string> binaryParts = new List<string>();
-            foreach (string part in parts)
+            var binaryParts = new List<string>();
+            foreach (var part in parts)
             {
-                if (part.Length < 0 || part.Length > 8)
+                if (!int.TryParse(part, out int num) || num < 0 || num > 255)
                     return null;
-
-                double number = 0;
-
-                for (int i = 0; i < 8; i++)
+                string bin = "";
+                int value = num;
+                for (int i = 7; i >= 0; i--)
                 {
-                    if (part[i] == '0')
-                    {
-                        continue;
-                    }
-
-                    else if (part[i] == '1')
-                    {
-                        number += Math.Pow(2, 7 - i);
-                    }
-
-                    else
-                    {
-                        return null;
-                    }
+                    int mask = 1 << i;
+                    bin += (value & mask) != 0 ? "1" : "0";
                 }
-
-                binaryParts.Add($"{number}");
+                binaryParts.Add(bin);
             }
             return string.Join(".", binaryParts);
         }
     }
 }
+
